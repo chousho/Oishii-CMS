@@ -1,0 +1,13 @@
+CMS PACKAGES
+Oishii:		Web Application core.
+    Oishii contains the libraries needed to create the Web application. It gives responsibility to handle the content to the appropriate packages for more specific output handling.
+
+Bento:		Theme templating; Media Output.
+    Bento deals with the display aspect of applications, and handles all templates and themes. Allows for easy switching in/out of page design modules.
+
+Origami:	Formatting for input/output of Strings.
+	Checks PHP settings, character encoding and html entities to ensure proper output for user.
+
+## Outside Packages - temporary or not ##
+Smarty - Templating
+Zend - Framework
