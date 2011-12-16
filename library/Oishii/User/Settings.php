@@ -11,15 +11,15 @@ class Oishii_User_Settings
 	private	$notifications;
 	private	$privacy;
 	private	$isActive; // Checks whether the user's account is active
-	
+
 	public function __construct(){
-		
+
 	}
-	
+
 	/**
 	 * Getters
 	 */
-	
+
 	/**
 	 * Setters
 	 */

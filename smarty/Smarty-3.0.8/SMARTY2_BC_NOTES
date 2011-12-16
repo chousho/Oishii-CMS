@@ -36,9 +36,9 @@ makes Javascript/CSS easier to work with, eliminating the need for {literal}.
 This feature can be disabled by setting $smarty->auto_literal = false;
 
 == Unquoted Strings ==
-Smarty 2 was a bit more forgiving (and ambiguous) when it comes to unquoted strings 
-in parameters. Smarty3 is more restrictive. You can still pass strings without quotes 
-so long as they contain no special characters. (anything outside of A-Za-z0-9_) 
+Smarty 2 was a bit more forgiving (and ambiguous) when it comes to unquoted strings
+in parameters. Smarty3 is more restrictive. You can still pass strings without quotes
+so long as they contain no special characters. (anything outside of A-Za-z0-9_)
 
 For example filename strings must be quoted:
 
@@ -56,7 +56,7 @@ be certain to call parent::__construct() first.
 class MySmarty extends Smarty {
    function __construct() {
        parent::__construct();
-    
+
        // your initialization code goes here
 
    }
@@ -67,7 +67,7 @@ class MySmarty extends Smarty {
 Smarty implements its own autoloader with spl_autoload_register. If you
 use an autoloader in your own application, you MUST register yours as well. Using
 __autoload() WILL FAIL. This is standard PHP5 autoloader procedure for shared libraries.
-See http://us3.php.net/manual/en/function.spl-autoload-register.php 
+See http://us3.php.net/manual/en/function.spl-autoload-register.php
 
 == Plugin Filenames ==
 Since Smarty 3 uses the default spl_autoloader, the plugin filenames are now required to be
@@ -75,10 +75,10 @@ lower case. Smarty 2 allowed mixed case plugin names, you must rename them for S
 
 == Scope of Special Smarty Variables ==
 In Smarty 2 the special Smarty variables $smarty.section.* and $smarty.foreach.*
-had global scope. If you had loops with the same name in subtemplates, you could accidentally 
+had global scope. If you had loops with the same name in subtemplates, you could accidentally
 overwrite values of a parent template.
 
-In Smarty 3 these special Smarty variables now have local scope in the template which 
+In Smarty 3 these special Smarty variables now have local scope in the template which
 is defining the loop. In the rare case you need these values in a subtemplate, you have to
 pass them as parameters.
 
@@ -87,15 +87,15 @@ pass them as parameters.
 </source>
 
 == SMARTY_RESOURCE_CHAR_SET ==
-Smarty 3 sets the constant SMARTY_RESOURCE_CHAR_SET to utf-8 as the default template charset. 
-This is now used with modifiers like escape as the default charset. If your templates use 
+Smarty 3 sets the constant SMARTY_RESOURCE_CHAR_SET to utf-8 as the default template charset.
+This is now used with modifiers like escape as the default charset. If your templates use
 another charset, make sure that you define the constant accordingly.
 
 == trigger_error() ==
 The API function trigger_error() has been removed. It is still included in the Smarty2 API wrapper.
 
 == Smarty constants ==
-The constants 
+The constants
 SMARTY_PHP_PASSTHRU
 SMARTY_PHP_QUOTE
 SMARTY_PHP_REMOVE

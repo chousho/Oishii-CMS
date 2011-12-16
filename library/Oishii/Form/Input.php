@@ -1,9 +1,9 @@
 <?php
 /**
  * Input.php
- * 
+ *
  * @author Chousho
- * @version 
+ * @version
  * @package package_name
  * Created on Jun 14, 2011
  */
@@ -20,41 +20,41 @@
  */
  	protected	$size; // Int containing size of input box
  	protected	$src; // Source image that can be used in place of text
- 	
+
  	/**
  	 * Create Input field object
  	 */
- 	 
+
  	 /**
  	  * Input constructor
- 	  * 
- 	  * Instantiate an object that will hold values for an HTML 5 
+ 	  *
+ 	  * Instantiate an object that will hold values for an HTML 5
  	  * input box of any type.
- 	  * 
+ 	  *
  	  * @var $name, $type, $value
  	  */
  	 public function __construct($name, $type, $value){
  	 	$type	= strtolower($type);
  	 	switch($type){
- 	 		case "button": 
+ 	 		case "button":
  	 			$this->inputType	= $type;
  	 			break;
- 	 		case "checkbox": 
+ 	 		case "checkbox":
  	 			$this->inputType	= $type;
  	 			break;
- 	 		case "password": 
+ 	 		case "password":
  	 			$this->inputType	= $type;
  	 			break;
- 	 		case "radio": 
+ 	 		case "radio":
  	 			$this->inputType	= $type;
  	 			break;
- 	 		case "submit": 
+ 	 		case "submit":
  	 			$this->inputType	= $type;
  		 		break;
- 	 		case "text": 
+ 	 		case "text":
  	 			$this->inputType	= $type;
  	 			break;
- 	 		
+
  	 		default:
  	 			$this->inputType	= $type;
  	 	} // end Switch
@@ -81,7 +81,7 @@
 		return $this->value;
 	}
 	// End Getters
- 	 
+
  	// Setters
  	public function setInputType($value){
  	 	$this->inputType		= $value;
@@ -100,7 +100,7 @@
 		$this->value	= $value;
 	}
 	// End Setters
-	
+
 	public function printForm(){
 		print new Render_Html5_Form_Input($this);
 	}

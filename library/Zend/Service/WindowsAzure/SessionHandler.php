@@ -57,7 +57,7 @@ class Zend_Service_WindowsAzure_SessionHandler
      * @var string
      */
     protected $_sessionTablePartition;
-    
+
     /**
      * Creates a new Zend_Service_WindowsAzure_SessionHandler instance
      *
@@ -72,7 +72,7 @@ class Zend_Service_WindowsAzure_SessionHandler
 		$this->_sessionTable = $sessionTable;
 		$this->_sessionTablePartition = $sessionTablePartition;
 	}
-	
+
 	/**
 	 * Registers the current session handler as PHP's session handler
 	 *
@@ -88,7 +88,7 @@ class Zend_Service_WindowsAzure_SessionHandler
                                         array($this, 'gc')
         );
     }
-    
+
     /**
      * Open the session store
      *
@@ -101,7 +101,7 @@ class Zend_Service_WindowsAzure_SessionHandler
         if (!$tableExists) {
             $this->_tableStorage->createTable($this->_sessionTable);
         }
-        
+
         // Ok!
         return true;
     }

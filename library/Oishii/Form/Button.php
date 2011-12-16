@@ -1,9 +1,9 @@
 <?php
 /**
  * Button.php
- * 
+ *
  * @author Chousho
- * @version 
+ * @version
  * @package package_name
  * Created on Jun 14, 2011
  */
@@ -32,7 +32,7 @@
 			default:
 				$this->type	= "submit";
 		} // End Switch
-		
+
 		$this->name		= $name;
 		$this->content	= $content;
 	} // End Construct
@@ -50,7 +50,7 @@
     public function __getContent(){
         return $this->content;
     }
-    
+
     // End Getters
 /**
  * Setters
@@ -66,6 +66,6 @@
     public function __setContent($value){
            $this->content	= $value;
     }
-    // End Setters	
- 	
+    // End Setters
+
  }

@@ -52,7 +52,7 @@ class Zend_Service_WindowsAzure_Diagnostics_DirectoryConfigurationSubscription
 	 * @param	int		$directoryQuotaInMB		Directory quota in MB
 	 */
     public function __construct($path, $container, $directoryQuotaInMB = 1024)
-    {	
+    {
         $this->_data = array(
             'path'                  => $path,
             'container'             => $container,

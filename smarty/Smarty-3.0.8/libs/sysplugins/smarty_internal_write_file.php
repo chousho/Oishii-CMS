@@ -2,10 +2,10 @@
 
 /**
  * Smarty write file plugin
- * 
+ *
  * @package Smarty
  * @subpackage PluginsInternal
- * @author Monte Ohrt 
+ * @author Monte Ohrt
  */
 
 /**
@@ -14,7 +14,7 @@
 class Smarty_Internal_Write_File {
     /**
      * Writes file in a save way to disk
-     * 
+     *
      * @param string $_filepath complete filepath
      * @param string $_contents file content
      * @return boolean true
@@ -22,11 +22,11 @@ class Smarty_Internal_Write_File {
     public static function writeFile($_filepath, $_contents, $smarty)
     {
         $old_umask = umask(0);
-        $_dirpath = dirname($_filepath); 
+        $_dirpath = dirname($_filepath);
         // if subdirs, create dir structure
         if ($_dirpath !== '.' && !file_exists($_dirpath)) {
             mkdir($_dirpath, $smarty->_dir_perms, true);
-        } 
+        }
         // write to tmp file, then move to overt file lock race condition
         $_tmp_file = tempnam($_dirpath, 'wrt');
 
@@ -43,14 +43,14 @@ class Smarty_Internal_Write_File {
 
         // remove original file
         if (file_exists($_filepath))
-            @unlink($_filepath); 
+            @unlink($_filepath);
         // rename tmp file
-        rename($_tmp_file, $_filepath); 
+        rename($_tmp_file, $_filepath);
         // set file permissions
         chmod($_filepath, $smarty->_file_perms);
         umask($old_umask);
         return true;
-    } 
-} 
+    }
+}
 
 ?>

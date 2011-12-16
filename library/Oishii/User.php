@@ -1,29 +1,29 @@
 <?php
 /**
  * User.php
- * 
+ *
  * @author Chousho
- * @version 
+ * @version
  * @package package_name
  * Created on Jun 13, 2011
  */
- 
+
  class Oishii_User
  {
  	const	CONTACT 	= 3;
  	const	GROUP		= 2;
  	const	LOGIN		= 1;
  	const	SETTINGS	= 4;
- 	
+
  	/* User Information */
  	protected	$userId;
 	protected	$username;
 
 	/* Objects */
  	protected	$contact;
- 	protected	$login; 	
+ 	protected	$login;
 	protected	$settings;
-	
+
 	/* User Priveleges and Permissions */
 	/**
 	 * User Accounts
@@ -32,11 +32,11 @@
 	 */
 	protected	$group;
 	protected	$priv;
-	 
+
  	public function __construct($username){
- 		$this->username	= $username; 		
+ 		$this->username	= $username;
  	}
- 	
+
  	public function __get($variable){
  		return $this->$variable;
  	}

@@ -38,7 +38,7 @@ require_once 'Zend/Service/WindowsAzure/Storage/BatchStorageAbstract.php';
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Service_WindowsAzure_Storage_Batch
-{    
+{
     /**
      * Storage client the batch is defined on
      *
@@ -134,7 +134,7 @@ class Zend_Service_WindowsAzure_Storage_Batch
 	    if ($forTableStorage) {
 	        $this->_forTableStorage = true;
 	    }
-	
+
 	    // Set _isSingleSelect
 	    if ($httpVerb == Zend_Http_Client::GET) {
 	        if (count($this->_operations) > 0) {
@@ -142,29 +142,29 @@ class Zend_Service_WindowsAzure_Storage_Batch
 	        }
 	        $this->_isSingleSelect = true;
 	    }
-	
+
 	    // Clean path
 		if (strpos($path, '/') !== 0) {
 			$path = '/' . $path;
 		}
-			
+
 		// Clean headers
 		if ($headers === null) {
 		    $headers = array();
 		}
-		
+
 		// URL encoding
 		$path           = Zend_Service_WindowsAzure_Storage::urlencode($path);
 		$queryString    = Zend_Service_WindowsAzure_Storage::urlencode($queryString);
 
 		// Generate URL
 		$requestUrl     = $this->getBaseUrl() . $path . $queryString;
-		
+
 		// Generate $rawData
 		if ($rawData === null) {
 		    $rawData = '';
 		}
-		
+
 		// Add headers
 		if ($httpVerb != Zend_Http_Client::GET) {
     		$headers['Content-ID'] = count($this->_operations) + 1;
@@ -173,7 +173,7 @@ class Zend_Service_WindowsAzure_Storage_Batch
     		}
     		$headers['Content-Length'] = strlen($rawData);
 		}
-		
+
 		// Generate $operation
 		$operation = '';
 		$operation .= $httpVerb . ' ' . $requestUrl . ' HTTP/1.1' . "\n";
@@ -182,12 +182,12 @@ class Zend_Service_WindowsAzure_Storage_Batch
 		    $operation .= $key . ': ' . $value . "\n";
 		}
 		$operation .= "\n";
-		
+
 		// Add data
 		$operation .= $rawData;
 
 		// Store operation
-		$this->_operations[] = $operation;	
+		$this->_operations[] = $operation;
 	}
 
     /**

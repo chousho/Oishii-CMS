@@ -1,9 +1,9 @@
 <?php
 /**
  * Textarea.php
- * 
+ *
  * @author Chousho
- * @version 
+ * @version
  * @package package_name
  * Created on Jun 14, 2011
  */
@@ -19,12 +19,12 @@
  */
  	protected	$rows;
  	protected	$cols;
- 	
+
  	public function __construct($name, $content){
  		$this->name		= $name;
  		$this->content	= $content;
  	} // End Construct
- 	
+
 /**
  * Getters
  */
@@ -61,7 +61,7 @@
            $this->rows	= $value;
     }
     // End Setters
-    
+
     public function printForm(){
     	$html	= "";
 		if($this->cssId != "")
@@ -75,7 +75,7 @@
     		$html	.= " rows=\"" . $this->rows . "\"";
     	if($this->cols)
     		$html	.= " cols=\"" . $this->cols . "\"";
-    		
+
 		if($this->label != "")
 			echo "<label id=\"" . $this->cssId . "_label\" for=\"" . $this->cssId . "\">" . $this->label . "</label>\n";
 

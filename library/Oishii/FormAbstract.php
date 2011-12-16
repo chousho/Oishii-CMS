@@ -1,9 +1,9 @@
 <?php
 /**
  * Abstract.php
- * 
+ *
  * @author Chousho
- * @version 
+ * @version
  * @package package_name
  * Created on Jun 14, 2011
  */
@@ -12,14 +12,14 @@ abstract class FormAbstract
 	// Global variables
 	protected	$name;
 	protected	$label;
-	
+
 	// CSS options
 	protected	$id;
 	protected	$class;
 
 	// Javascript event options
 	protected	$jsEvent;
-	
+
 	/**
 	 * Getters
 	 */
@@ -39,7 +39,7 @@ abstract class FormAbstract
 		return $this->jsEvent;
 	}
 	// End Getters
-	
+
 	/**
 	 * Setters
 	 */
@@ -49,7 +49,7 @@ abstract class FormAbstract
  	public function setLabel($label){
  	 	$this->label		= $label;
  	 }
- 	 
+
 	public function setId($id){
 		$id			= preg_replace('/[^a-z0-9_-]/', '', $id);
 		$this->id	= $id;
@@ -62,11 +62,11 @@ abstract class FormAbstract
 		$this->jsEvent	= $jsEvent;
 	}
 	// End Setters
-	
+
 	/**
 	 * Print the required output for the forms.
 	 * Usually this will be HTML (whatever version is available)
-	 * However this may also be used as a text form and be output 
+	 * However this may also be used as a text form and be output
 	 * as a PDF at some future time.
 	 */
 	 public function printForm(){

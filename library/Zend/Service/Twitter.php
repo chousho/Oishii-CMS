@@ -369,7 +369,7 @@ class Zend_Service_Twitter extends Zend_Rest_Client
                 case 'trim_user':
                 case 'include_entities':
                     $_params[strtolower($key)] = $value ? '1' : '0';
-                    break;                    
+                    break;
                 default:
                     break;
             }
