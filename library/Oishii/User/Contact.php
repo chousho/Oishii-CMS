@@ -10,7 +10,7 @@ class Oishii_User_Contact
 	const	PERSONAL	= 1;
 	const	SOCIAL		= 3;
 	const	MESSENGER	= 2;
-	
+
 	/**
 	 * Contact.Personal
 	 */
@@ -22,7 +22,7 @@ class Oishii_User_Contact
 	 */
 	private	$facebook;
 	private	$twitter;
-	 
+
 	/**
 	 * Contact.Messenger
 	 */
@@ -33,13 +33,13 @@ class Oishii_User_Contact
 	private	$skype;
 	private	$xmpp; // aka - Jabber
 	private	$yahoo;
-	
+
 	/**
 	 * Eventually call all of this from the DB, and setup variables
 	 * from fields in the table.
 	 */
 	public function __construct(){
-		
+
 	}
 	/**
 	 * Getters and Setters
@@ -84,7 +84,7 @@ class Oishii_User_Contact
 	public function getYahoo(){
 		return $this->yahoo;
 	}
-	
+
 	/**
 	 * Setters
 	 */

@@ -333,7 +333,7 @@ class Zend_Feed_Reader
      */
     public static function importString($string)
     {
-        
+
         $libxml_errflag = libxml_use_internal_errors(true);
         $dom = new DOMDocument;
         $status = $dom->loadXML($string);

@@ -189,7 +189,7 @@ class Zend_View_Helper_Doctype extends Zend_View_Helper_Abstract
     {
         return (stristr($this->getDoctype(), 'xhtml') ? true : false);
     }
-    
+
     /**
      * Is doctype HTML5? (HeadMeta uses this for validation)
      *
@@ -198,7 +198,7 @@ class Zend_View_Helper_Doctype extends Zend_View_Helper_Abstract
     public function isHtml5() {
         return (stristr($this->doctype(), '<!DOCTYPE html>') ? true : false);
     }
-    
+
     /**
      * Is doctype RDFa?
      *

@@ -115,7 +115,7 @@ class Zend_Tool_Project_Provider_Controller
         // get request & response
         $request = $this->_registry->getRequest();
         $response = $this->_registry->getResponse();
-        
+
         // determine if testing is enabled in the project
         require_once 'Zend/Tool/Project/Provider/Test.php';
         $testingEnabled = Zend_Tool_Project_Provider_Test::isTestingEnabled($this->_loadedProfile);
@@ -127,7 +127,7 @@ class Zend_Tool_Project_Provider_Controller
                 array('color' => array('yellow'))
                 );
         }
-        
+
         if (self::hasResource($this->_loadedProfile, $name, $module)) {
             throw new Zend_Tool_Project_Provider_Exception('This project already has a controller named ' . $name);
         }

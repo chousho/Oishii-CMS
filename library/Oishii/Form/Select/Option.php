@@ -1,16 +1,16 @@
 <?php
 /**
  * Option.php
- * 
+ *
  * @author Chousho
- * @version 
+ * @version
  * @package package_name
  * Created on Jun 14, 2011
  */
 
 class Form_Select_Option
 {
-	
+
 	/**
  * Variables passed through constructor
  */
@@ -20,12 +20,12 @@ class Form_Select_Option
  */
  	protected	$value;
 	protected	$selected;
-	
+
 	public function __construct($content, $selected){
 		$content		= strtolower($content);
 		$content		= preg_replace('/[^a-z0-9_]/', '', $content);
 		$this->content	= str_replace(" ", "_", $content);
-		
+
 		if($selected == 1 || $selected == "yes")
 			$this->selected	= 1;
 	} // End Constructor

@@ -42,14 +42,14 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
      */
     const DEVSTORE_ACCOUNT       = "devstoreaccount1";
     const DEVSTORE_KEY           = "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==";
-    
+
     /**
      * HTTP header prefixes
      */
     const PREFIX_PROPERTIES      = "x-ms-prop-";
     const PREFIX_METADATA        = "x-ms-meta-";
     const PREFIX_STORAGE_HEADER  = "x-ms-";
-    
+
     /**
      * Permissions
      */
@@ -64,21 +64,21 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 	 * @var string
 	 */
 	protected $_accountName = '';
-	
+
 	/**
 	 * Account key for Windows Azure
 	 *
 	 * @var string
 	 */
 	protected $_accountKey = '';
-	
+
 	/**
 	 * Use path-style URI's
 	 *
 	 * @var boolean
 	 */
 	protected $_usePathStyleUri = false;
-	
+
 	/**
 	 * Creates a new Zend_Service_WindowsAzure_Credentials_CredentialsAbstract instance
 	 *
@@ -95,7 +95,7 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 		$this->_accountKey = base64_decode($accountKey);
 		$this->_usePathStyleUri = $usePathStyleUri;
 	}
-	
+
 	/**
 	 * Set account name for Windows Azure
 	 *
@@ -107,7 +107,7 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 		$this->_accountName = $value;
 		return $this;
 	}
-	
+
 	/**
 	 * Set account key for Windows Azure
 	 *
@@ -119,7 +119,7 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 		$this->_accountKey = base64_decode($value);
 		return $this;
 	}
-	
+
 	/**
 	 * Set use path-style URI's
 	 *
@@ -131,7 +131,7 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 		$this->_usePathStyleUri = $value;
 		return $this;
 	}
-	
+
 	/**
 	 * Sign request URL with credentials
 	 *
@@ -145,7 +145,7 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 		$resourceType = Zend_Service_WindowsAzure_Storage::RESOURCE_UNKNOWN,
 		$requiredPermission = Zend_Service_WindowsAzure_Credentials_CredentialsAbstract::PERMISSION_READ
 	);
-	
+
 	/**
 	 * Sign request headers with credentials
 	 *
@@ -169,8 +169,8 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 		$requiredPermission = Zend_Service_WindowsAzure_Credentials_CredentialsAbstract::PERMISSION_READ,
 		$rawData = null
 	);
-	
-	
+
+
 	/**
 	 * Prepare query string for signing
 	 *
@@ -181,13 +181,13 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 	{
 	    // Return value
 	    $returnValue = array();
-	
+
 	    // Prepare query string
 	    $queryParts = $this->_makeArrayOfQueryString($value);
 	    foreach ($queryParts as $key => $value) {
 	    	$returnValue[] = $key . '=' . $value;
 	    }
-	
+
 	    // Return
 	    if (count($returnValue) > 0) {
 	    	return '?' . implode('&', $returnValue);
@@ -195,7 +195,7 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 	    	return '';
 	    }
 	}
-	
+
 	/**
 	 * Make array of query string
 	 *
@@ -206,29 +206,29 @@ abstract class Zend_Service_WindowsAzure_Credentials_CredentialsAbstract
 	{
 		// Returnvalue
 		$returnValue = array();
-		
+
 	    // Remove front ?
    		if (strlen($value) > 0 && strpos($value, '?') === 0) {
     		$value = substr($value, 1);
     	}
-    		
+
     	// Split parts
     	$queryParts = explode('&', $value);
     	foreach ($queryParts as $queryPart) {
     		$queryPart = explode('=', $queryPart, 2);
-    		
+
     		if ($queryPart[0] != '') {
     			$returnValue[ $queryPart[0] ] = isset($queryPart[1]) ? $queryPart[1] : '';
     		}
     	}
-    	
+
     	// Sort
     	ksort($returnValue);
 
     	// Return
 		return $returnValue;
 	}
-	
+
 	/**
 	 * Returns an array value if the key is set, otherwide returns $valueIfNotSet
 	 *

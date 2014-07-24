@@ -56,7 +56,7 @@ class Zend_Service_WindowsAzure_Diagnostics_ConfigurationPerformanceCounters
 	 * @param	int		$scheduledTransferPeriodInMinutes	Scheduled transfer period in minutes
 	 */
     public function __construct($bufferQuotaInMB = 0, $scheduledTransferPeriodInMinutes = 0)
-    {	
+    {
         $this->_data = array(
             'bufferquotainmb'                  => $bufferQuotaInMB,
             'scheduledtransferperiodinminutes' => $scheduledTransferPeriodInMinutes,

@@ -63,7 +63,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedKey
     ) {
         return $requestUrl;
     }
-    
+
     /**
      * Sign request headers with credentials
      *
@@ -93,7 +93,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedKey
         if ($forTableStorage) {
             throw new Zend_Service_WindowsAzure_Credentials_Exception('The Windows Azure SDK for PHP does not support SharedKey authentication on table storage. Use SharedKeyLite authentication instead.');
         }
-        
+
         // Determine path
         if ($this->_usePathStyleUri) {
             $path = substr($path, strpos($path, '/'));
@@ -101,10 +101,10 @@ class Zend_Service_WindowsAzure_Credentials_SharedKey
 
         // Determine query
         $queryString = $this->_prepareQueryStringForSigning($queryString);
-    
+
         // Canonicalized headers
         $canonicalizedHeaders = array();
-        
+
         // Request date
         $requestDate = '';
         if (isset($headers[Zend_Service_WindowsAzure_Credentials_CredentialsAbstract::PREFIX_STORAGE_HEADER . 'date'])) {
@@ -113,7 +113,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedKey
             $requestDate = gmdate('D, d M Y H:i:s', time()) . ' GMT'; // RFC 1123
             $canonicalizedHeaders[] = Zend_Service_WindowsAzure_Credentials_CredentialsAbstract::PREFIX_STORAGE_HEADER . 'date:' . $requestDate;
         }
-        
+
         // Build canonicalized headers
         if ($headers !== null) {
             foreach ($headers as $header => $value) {
@@ -141,14 +141,14 @@ class Zend_Service_WindowsAzure_Credentials_SharedKey
                 $canonicalizedResource .= "\n" . strtolower($key) . ':' . $value;
             }
         }
-        
+
         // Content-Length header
         $contentLength = '';
         if (strtoupper($httpVerb) != Zend_Http_Client::GET
              && strtoupper($httpVerb) != Zend_Http_Client::DELETE
              && strtoupper($httpVerb) != Zend_Http_Client::HEAD) {
             $contentLength = 0;
-            
+
             if ($rawData !== null) {
                 $contentLength = strlen($rawData);
             }
@@ -168,11 +168,11 @@ class Zend_Service_WindowsAzure_Credentials_SharedKey
     	$stringToSign[] = $this->_issetOr($headers, 'If-None-Match', '');			// If-None-Match
     	$stringToSign[] = $this->_issetOr($headers, 'If-Unmodified-Since', '');		// If-Unmodified-Since
     	$stringToSign[] = $this->_issetOr($headers, 'Range', '');					// Range
-    	
+
     	if (!$forTableStorage && count($canonicalizedHeaders) > 0) {
     		$stringToSign[] = implode("\n", $canonicalizedHeaders); // Canonicalized headers
     	}
-    		
+
     	$stringToSign[] = $canonicalizedResource;		 			// Canonicalized resource
     	$stringToSign   = implode("\n", $stringToSign);
     	$signString     = base64_encode(hash_hmac('sha256', $stringToSign, $this->_accountKey, true));
@@ -180,7 +180,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedKey
         // Sign request
         $headers[Zend_Service_WindowsAzure_Credentials_CredentialsAbstract::PREFIX_STORAGE_HEADER . 'date'] = $requestDate;
         $headers['Authorization'] = 'SharedKey ' . $this->_accountName . ':' . $signString;
-        
+
         // Return headers
         return $headers;
     }

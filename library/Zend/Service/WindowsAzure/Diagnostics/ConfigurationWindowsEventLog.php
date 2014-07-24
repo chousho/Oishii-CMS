@@ -58,7 +58,7 @@ class Zend_Service_WindowsAzure_Diagnostics_ConfigurationWindowsEventLog
 	 * @param	string	$scheduledTransferLogLevelFilter	Scheduled transfer log level filter
 	 */
     public function __construct($bufferQuotaInMB = 0, $scheduledTransferPeriodInMinutes = 0, $scheduledTransferLogLevelFilter = Zend_Service_WindowsAzure_Diagnostics_LogLevel::UNDEFINED)
-    {	
+    {
         $this->_data = array(
             'bufferquotainmb'                    => $bufferQuotaInMB,
             'scheduledtransferperiodinminutes'     => $scheduledTransferPeriodInMinutes,

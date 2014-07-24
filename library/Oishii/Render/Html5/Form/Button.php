@@ -8,7 +8,7 @@
 class Render_Html_Html5_Form_Button extends Render_Html_Html5_FormAbstract
 {
 	private	$formObj;
-	
+
 	public function __construct(Form $formObj){
 		$this->formObj	= $formObj;
     }

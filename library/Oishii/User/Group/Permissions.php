@@ -9,17 +9,17 @@ class Oishii_User_Group_Permissions
 {
 	private	$dbTable;
 	/**
-	 * 
+	 *
 	 */
 	private	$ability = array(); // Named array coresponding to DB field names/values
-	
+
 	public function __construct(){
-		
+
 	}
 	public function fetchPermissions(){
-		
+
 	}
 	public function loadPermissions(){
-		
+
 	}
 }

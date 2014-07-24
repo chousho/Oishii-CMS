@@ -6,8 +6,8 @@ $foo is <?=$foo?>
 <?=$person->setName('Paul')->setAge(39)->introduce()?>
 <br>Test Arrays
 <?=$array['a']['aa']?> <?=$array['b']?>
-<br>function time 
+<br>function time
 <? echo time();?>
-<br>nocache function time 
+<br>nocache function time
 <? echo '<? echo time();?>';?>
 <br>DONE

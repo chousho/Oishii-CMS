@@ -66,7 +66,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
 	    parent::__construct($accountName, $accountKey, $usePathStyleUri);
 	    $this->_permissionSet = $permissionSet;
 	}
-	
+
 	/**
 	 * Get permission set
 	 *
@@ -76,7 +76,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
 	{
 	    return $this->_permissionSet;
 	}
-	
+
     /**
      * Set permisison set
      *
@@ -122,7 +122,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
         if ($this->_usePathStyleUri) {
             $path = substr($path, strpos($path, '/'));
         }
-            
+
         // Add trailing slash to $path
         if (substr($path, 0, 1) !== '/') {
             $path = '/' . $path;
@@ -134,7 +134,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
 			$canonicalizedResource .= '/' . $this->_accountName;
 		}*/
 		$canonicalizedResource .= $path;
-		
+
 		// Create string to sign
 		$stringToSign   = array();
 		$stringToSign[] = $permissions;
@@ -145,7 +145,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
 
         $stringToSign = implode("\n", $stringToSign);
         $signature    = base64_encode(hash_hmac('sha256', $stringToSign, $this->_accountKey, true));
-    
+
         return $signature;
     }
 
@@ -215,30 +215,30 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
 
         // Parse permission url
 	    $parsedPermissionUrl = parse_url($permissionUrl);
-	
+
 	    // Parse permission properties
 	    $permissionParts = explode('&', $parsedPermissionUrl['query']);
-	
+
 	    // Parse request url
 	    $parsedRequestUrl = parse_url($requestUrl);
-	
+
 	    // Check if permission matches request
 	    $matches = true;
 	    foreach ($permissionParts as $part) {
 	        list($property, $value) = explode('=', $part, 2);
-	
+
 	        if ($property == 'sr') {
 	            $matches = $matches && (strpbrk($value, $requiredResourceType) !== false);
 	        }
-	
+
 	    	if ($property == 'sp') {
 	            $matches = $matches && (strpbrk($value, $requiredPermission) !== false);
 	        }
 	    }
-	
+
 	    // Ok, but... does the resource match?
 	    $matches = $matches && (strpos($parsedRequestUrl['path'], $parsedPermissionUrl['path']) !== false);
-	
+
         // Return
 	    return $matches;
     }
@@ -267,14 +267,14 @@ class Zend_Service_WindowsAzure_Credentials_SharedAccessSignature
 	            } else {
 	                $requestUrl .= '&';
 	            }
-	
+
 	            $requestUrl .= $parsedPermittedUrl['query'];
 
 	            // Return url
 	            return $requestUrl;
 	        }
 	    }
-	
+
 	    // Return url, will be unsigned...
 	    return $requestUrl;
 	}

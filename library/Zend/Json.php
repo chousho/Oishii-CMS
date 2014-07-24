@@ -268,7 +268,7 @@ class Zend_Json
                 }
                 if (!empty($value)) {
                     $attributes['@text']= $value;
-                } 
+                }
                 return array($name => $attributes);
             } else {
                return array($name => $value);
@@ -347,7 +347,7 @@ class Zend_Json
         return($jsonStringOutput);
     } // End of function fromXml.
 
-    
+
 
     /**
      * Pretty-print JSON string

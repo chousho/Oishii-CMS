@@ -38,7 +38,7 @@
 
 01/03/2011
 - bugfix replace modifier did not work in 3.0.7 on systems without multibyte support
-- bugfix {$smarty.template} could return in 3.0.7 parent template name instead of 
+- bugfix {$smarty.template} could return in 3.0.7 parent template name instead of
          child name when it needed to compile
 
 25/02/2011
@@ -190,7 +190,7 @@
 - bugfix  overloading problem when $smarty->fetch()/display() have been used in plugins
 				(introduced with 3.0.2)
 - code cleanup
-								
+
 ===== Smarty 3.0.3  =====
 
 13/11/2010
@@ -206,7 +206,7 @@
 - reactivated $error_reporting property handling
 - fixed typo in compile_continue
 - fixed security in {fetch} plugin
-- changed back plugin parameters to two. second is template object 
+- changed back plugin parameters to two. second is template object
   with transparent access to Smarty object
 - fixed {config_load} scoping form compile time to run time
 
@@ -228,7 +228,7 @@ request_use_auto_globals
   security is enabled.
 
 01/11/2010
-- bugfix related to E_NOTICE change.  {if empty($foo)} did fail when $foo contained a string 
+- bugfix related to E_NOTICE change.  {if empty($foo)} did fail when $foo contained a string
 
 28/10/2010
 - bugfix on compiling modifiers within $smarty special vars like {$smarty.post.{$foo|lower}}
@@ -389,7 +389,7 @@ request_use_auto_globals
 
 21/06/2010
 - removed use of PHP shortags SMARTY_PHP_PASSTHRU mode
-- improved speed of cache->clear() when a compile_id was specified and use_sub_dirs is true 
+- improved speed of cache->clear() when a compile_id was specified and use_sub_dirs is true
 
 20/06/2010
 - replace internal get_time() calls with standard PHP5 microtime(true) calls
@@ -449,13 +449,13 @@ request_use_auto_globals
 - reverted the change 0f 30/04/2010. With the exception of forward references template functions can be again called by a standard tag.
 
 10/05/2010
-- bugfix on {foreach} and {for} optimizations of 27/04/2010 
+- bugfix on {foreach} and {for} optimizations of 27/04/2010
 
 09/05/2010
-- update of template and config file parser because of minor parser generator bugs 
+- update of template and config file parser because of minor parser generator bugs
 
 07/05/2010
-- bugfix on {insert} 
+- bugfix on {insert}
 
 06/05/2010
 - bugfix when merging compiled templates and objects are passed as parameter of the {include} tag
@@ -463,7 +463,7 @@ request_use_auto_globals
 05/05/2010
 - bugfix on {insert} to cache parameter
 - implementation of $smarty->default_modifiers as in Smarty2
-- bugfix on getTemplateVars method 
+- bugfix on getTemplateVars method
 
 01/05/2010
 - bugfix on handling of variable method names at object chaning
@@ -495,7 +495,7 @@ request_use_auto_globals
 - removed parser restrictions in using true,false and null as ID
 
 07/04/2010
-- bugfix typo in smarty_internal_templatecompilerbase 
+- bugfix typo in smarty_internal_templatecompilerbase
 
 31/03/2010
 - compile locking by touching old compiled files to avoid concurrent compilations
@@ -507,7 +507,7 @@ request_use_auto_globals
 
 25/03/2010
 - change of utility->compileAllTemplates() log messages
-- bugfix on nocache code in {function} tags 
+- bugfix on nocache code in {function} tags
 - new method utility->compileAllConfig() to compile all config files
 
 24/03/2010
@@ -532,7 +532,7 @@ request_use_auto_globals
 16/03/2010
 - bugfix on assign attribute at registered template objects
 - make handling of modifiers on expression BC to Smarty2
- 
+
 15/03/2010
 - bugfix on block plugin calls
 
@@ -551,7 +551,7 @@ request_use_auto_globals
 - bugfix on nocache code in {block} tags if child template was included by {include}
 
 27/02/2010
-- allow block tags inside double quoted string 
+- allow block tags inside double quoted string
 
 26/02/2010
 - cache modified check implemented
@@ -633,15 +633,15 @@ request_use_auto_globals
 - bugfix on backslash within single quoted strings
 - bugfix allow absolute filepath for config files
 - bugfix on special Smarty variable $smarty.cookies
-- revert handling of newline on no output tags like {if...} 
+- revert handling of newline on no output tags like {if...}
 - allow special characters in config file section names for Smarty2 BC
 
 01/13/2010
-- bugfix on {if} tags 
+- bugfix on {if} tags
 
 01/12/2010
 - changed back modifer handling in parser. Some restrictions still apply:
-    if modifiers are used in side {if...} expression or in mathematical expressions 
+    if modifiers are used in side {if...} expression or in mathematical expressions
     parentheses must be used.
 - bugfix the {function..} tag did not accept the name attribute in double quotes
 - closed possible security hole at <?php ... ?> tags
@@ -671,7 +671,7 @@ request_use_auto_globals
 - bugfix for custom delimiter at extends resource and {extends} tag
 
 01/05/2010
-- bugfix sha1() calculations at extends resource and some general improvments on sha1() handling 
+- bugfix sha1() calculations at extends resource and some general improvments on sha1() handling
 
 
 01/03/2010
@@ -701,7 +701,7 @@ request_use_auto_globals
 - use sha1() for filepath encoding
 - updates on nocache_hash handling
 - internal change on merging some data
-- fixed cache filename for custom resources 
+- fixed cache filename for custom resources
 
 12/28/2009
 - update for security fixes
@@ -853,12 +853,12 @@ request_use_auto_globals
 - fixed preg_qoute on delimiters
 
 11/09/2009
-- lexer/parser bugfix 
+- lexer/parser bugfix
 - new SMARTY_SPL_AUTOLOAD constant to control the autoloader option
 - bugfix for {function} block tags in included templates
 
 11/08/2009
-- fixed alphanumeric array index 
+- fixed alphanumeric array index
 - bugfix on complex double quoted strings
 
 11/05/2009
@@ -876,7 +876,7 @@ request_use_auto_globals
 - new security_class property (default is Smarty_Security)
 
 11/02/2009
-- added neq,lte,gte,mod as aliases to if conditions 
+- added neq,lte,gte,mod as aliases to if conditions
 - throw exception on illegal Smarty() constructor calls
 
 10/31/2009
@@ -907,7 +907,7 @@ request_use_auto_globals
 - added {$foo++}{$foo--} syntax
 - buxfix changed PHP "if (..):" to "if (..){" because of possible bad code when concenating PHP tags
 - autoload Smarty internal classes
-- fixed file dependency for config files 
+- fixed file dependency for config files
 - some code optimizations
 - fixed function definitions on some autoloaded methodes
 - fixed nocache variable inside if condition of {if} tag
@@ -918,7 +918,7 @@ request_use_auto_globals
 
 10/19/2009
 - fixed compiled template merging on variable double quoted strings as name
-- fixed bug in caching mode 2 and cache_lifetime -1 
+- fixed bug in caching mode 2 and cache_lifetime -1
 - fixed modifier support on block tags
 
 10/17/2009
@@ -1117,7 +1117,7 @@ NOTICE: existing compiled template and cache files must be deleted
 
 05/05/2009
 - fixed E_STRICT incompabilities
-- {function} tag bug fix 
+- {function} tag bug fix
 - security policy definitions have been moved from plugins folder to file Security.class.php in libs folder
 - added allow_super_global configuration to security
 
@@ -1177,9 +1177,9 @@ NOTICE: existing compiled template and cache files must be deleted
 
 04/10/2009
 - check if mb string functions available otherwise fallback to normal string functions
-- added global variable scope SMARTY_GLOBAL_SCOPE 
+- added global variable scope SMARTY_GLOBAL_SCOPE
 - enable 'variable' filter by default
-- fixed {$smarty.block.parent.foo} 
+- fixed {$smarty.block.parent.foo}
 - implementation of a 'variable' filter as replacement for default modifier
 
 04/09/2009
@@ -1219,7 +1219,7 @@ NOTICE: existing compiled template and cache files must be deleted
 
 03/31/2009
 - bugfix smarty.class and internal.security_handler
-- added compile_check configuration 
+- added compile_check configuration
 - added setter/getter methodes
 
 03/30/2009
@@ -1252,7 +1252,7 @@ NOTICE: existing compiled template and cache files must be deleted
 - fixed exceptions in function plugins
 - fixed notice error in Smarty.class.php
 - allow chained objects to span multiple lines
-- fixed error in modifers 
+- fixed error in modifers
 
 03/20/2009
 - moved /plugins folder into /libs folder
@@ -1261,14 +1261,14 @@ NOTICE: existing compiled template and cache files must be deleted
 
 03/19/2009
 - allow array definition as modifer paramter
-- changed modifier to use multi byte string funktions. 
+- changed modifier to use multi byte string funktions.
 
 03/17/2009
-- bugfix 
+- bugfix
 
 03/15/2009
 - added {include_php} tag for BC
-- removed @ error suppression 
+- removed @ error suppression
 - bugfix fetch did always repeat output of first call when calling same template several times
 - PHPunit tests extended
 
@@ -1365,7 +1365,7 @@ NOTICE: existing compiled template and cache files must be deleted
 - changed search order on modifiers to look at plugins folder first
 - parser bug fix for modifier on array elements  $foo.bar|modifier
 - parser bug fix on single quoted srings
-- internal: splitted up compiler plugin files 
+- internal: splitted up compiler plugin files
 
 02/01/2009
 - allow method chaining on static classes
@@ -1429,7 +1429,7 @@ NOTICE: existing compiled template and cache files must be deleted
 - optimization of plugin loading
 
 12/30/2008
-- added compiler support of registered object 
+- added compiler support of registered object
 - added backtick support in doubled quoted strings for backward compatibility
 - some minor bug fixes and improvments
 
@@ -1440,7 +1440,7 @@ NOTICE: existing compiled template and cache files must be deleted
 - finished work on (un)register_modifier methode
 - plugin handling from plugins folder changed for modifier plugins
   deleted - internal.modifier.php
-- added modifier chaining to parser 
+- added modifier chaining to parser
 
 12/17/2008
 - finished (un)register_function methode

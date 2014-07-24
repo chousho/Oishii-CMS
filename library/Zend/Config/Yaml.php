@@ -126,7 +126,7 @@ class Zend_Config_Yaml extends Zend_Config
      *
      * @param  string        $yaml     YAML file to process
      * @param  mixed         $section  Section to process
-     * @param  array|boolean $options 
+     * @param  array|boolean $options
      */
     public function __construct($yaml, $section = null, $options = false)
     {
@@ -285,7 +285,7 @@ class Zend_Config_Yaml extends Zend_Config
         $inIndent = false;
         while (list($n, $line) = each($lines)) {
             $lineno = $n + 1;
-            
+
             $line = rtrim(preg_replace("/#.*$/", "", $line));
             if (strlen($line) == 0) {
                 continue;

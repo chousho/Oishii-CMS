@@ -24,7 +24,7 @@ variable modifier example of {ldelim}$Name|upper{rdelim}
 
 An example of a section loop:
 
-{section name=outer 
+{section name=outer
 loop=$FirstName}
 {if $smarty.section.outer.index is odd by 2}
 	{$smarty.section.outer.rownum} . {$FirstName[outer]} {$LastName[outer]}

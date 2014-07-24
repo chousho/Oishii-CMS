@@ -63,7 +63,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedKeyLite
     ) {
         return $requestUrl;
     }
-    
+
     /**
      * Sign request headers with credentials
      *
@@ -91,7 +91,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedKeyLite
         if (!$forTableStorage) {
             throw new Zend_Service_WindowsAzure_Credentials_Exception('The Windows Azure SDK for PHP does not support SharedKeyLite authentication on blob or queue storage. Use SharedKey authentication instead.');
         }
-        
+
         // Determine path
         if ($this->_usePathStyleUri) {
             $path = substr($path, strpos($path, '/'));
@@ -128,11 +128,11 @@ class Zend_Service_WindowsAzure_Credentials_SharedKeyLite
     	// Sign request
     	$headers[Zend_Service_WindowsAzure_Credentials_CredentialsAbstract::PREFIX_STORAGE_HEADER . 'date'] = $requestDate;
     	$headers['Authorization'] = 'SharedKeyLite ' . $this->_accountName . ':' . $signString;
-    	
+
     	// Return headers
     	return $headers;
 	}
-	
+
 	/**
 	 * Prepare query string for signing
 	 *
@@ -150,7 +150,7 @@ class Zend_Service_WindowsAzure_Credentials_SharedKeyLite
     		if (strlen($value) > 0 && strpos($value, '?') === 0) {
     			$value = substr($value, 1);
     		}
-    		
+
     		// Split parts
     		$queryParts = explode('&', $value);
     		foreach ($queryParts as $queryPart) {
